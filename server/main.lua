@@ -19,6 +19,17 @@ function GetCharacter(source)
     return result[1]
 end
 
+ESX.RegisterServerCallback("mythic_phone:hasItemCb", function(source, cb, item, countdata)
+    local src = source
+    local ply = ESX.GetPlayerFromId(src)
+
+    if ply.getInventoryItem(item).count > countdata then
+        cb(true)
+    else
+        cb(false)
+    end
+end)
+
 function getFullName(char)
     if char ~= nil then
         return char.firstname .. " " .. char.lastname
