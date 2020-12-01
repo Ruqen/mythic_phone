@@ -1,0 +1,431 @@
+#phone-container {
+    background: #eaeaea;
+
+    .inner-app {
+        .phone-app-top {
+            height: 92%;
+
+            .inner-phone-container {
+                height: 100%;
+                display: none;
+                overflow-y: auto;
+                overflow-x: auto;
+
+                &.active-section {
+                    display: block;
+                }
+
+                &[data-section="keypad"] {
+                    color: #1e1e1e;
+
+                    .keypad-top {
+                        height: 37%;
+
+                        .contact-display {
+                            font-size: 30px;
+                            position: absolute;
+                            font-weight: bold;
+                            width: fit-content;
+                            top: 8%;
+                            left: 0;
+                            right: 0;
+                            margin-left: auto;
+                            margin-right: auto;
+                            display: none;
+                        }
+
+                        .call-type {
+                            font-size: 15px;
+                            position: absolute;
+                            width: fit-content;
+                            top: 27%;
+                            left: 0;
+                            right: 0;
+                            margin-left: auto;
+                            margin-right: auto;
+                            display: none;
+                        }
+
+                        #type {
+                            position: absolute;
+                            height: 10%;
+                            width: 19%;
+                            border: none;
+                            top: 12%;
+                            left: 5%;
+                            padding: 15px 0;
+                            font-size: 40px;
+                            text-align: center;
+                            color: #797979;
+                        }
+
+                        #number {
+                            padding: 15px 0;
+                            height: 100%;
+                            font-size: 40px;
+                            text-align: center;
+                        }
+
+                        .delete-num-btn {
+                            position: absolute;
+                            right: 2%;
+                            top: 17.5%;
+                            font-size: 25px;
+                            
+                            &:hover {
+                                transition: all ease-in 0.15s;
+                                color: color("materialize-red", "darken-4");
+                            }
+                        }
+                    }
+
+                    .keypad-keys {
+                        background: #ffffff;
+                        border-top: 1px solid #1e1e1e;
+                        position: absolute;
+                        width: 100%;
+                        bottom: 8.5%;
+
+                        .keypad-key {
+                            width: 32%;
+                            padding: 10px;
+                            display: inline-block;
+                            text-align: center;
+                            font-size: 40px;
+                            border-radius: 15px;
+
+                            &:hover {
+                                transition: all ease-in 0.15s;
+                                filter: brightness(85%);
+                                background: #c4c4c4;
+                            }
+
+                            &.key-call {
+                                width: 32% !important;
+                                left: 34%;
+                                height: 100%;
+
+                                &:hover {
+                                    transition: all ease-in 0.15s;
+                                    filter: brightness(85%);
+                                    background: transparent;
+                                }
+
+                                i {
+                                    padding: 24px;
+                                    width: 85px;
+                                    background: #1B5E20;
+                                    border-radius: 100px;
+                                    color: #ffffff;
+                                    font-size: 35px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &[data-section="history"] {
+                    .call {
+                        padding: 10px;
+                        background: #ffffff;
+                        color: #1e1e1e;
+                        border-bottom: 1px solid #1e1e1e;
+
+                        &:hover {
+                            background: #c4c4c4;
+                        }
+
+                        i {
+                            font-size: 20px;
+                            padding: 10px;
+                            pointer-events: none;
+
+                            &.icon-outgoing {
+                                color: #ff0000;
+                            }
+    
+                            &.icon-incoming {
+                                color: #1e8100;
+                            }
+                        }
+                        
+                        span {
+                            display: inline-block;
+                            width: 45%;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            font-size: 15px;
+                            line-height: 15px;
+                            pointer-events: none;
+                        }
+
+                        .timestamp {
+                            max-width: 44%;
+                            text-align: right;
+                            float: right;
+                            line-height: 40px;
+                            font-size: 14px;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            pointer-events: none;
+                        }
+                    }
+                    
+                    .call-actions {
+                        z-index: 998;
+                        display: none;
+
+                        i {
+                            width: 32%;
+                            text-align: center;
+                            font-size: 25px;
+                            pointer-events: auto;
+                        
+                            &:hover {
+                                transition: all ease-in 0.15s;
+                                color: color("materialize-red", "darken-4");
+                            }
+
+                            &.action-disabled {
+                                color: #3f3f3f !important;
+        
+                                &:hover {
+                                    color: #3f3f3f !important;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &[data-section="contacts"] {
+                    .contacts-list {
+                        max-height: 89.5%;
+                        overflow-y: auto;
+                        overflow-x: hidden;
+                        
+                        .phone-contact {
+                            padding: 10px;
+                            background: #ffffff;
+                            color: #1e1e1e;
+                            border-bottom: 1px solid #1e1e1e;
+                            line-height: 35px;
+
+                            &:hover {
+                                transform: all ease-in 0.15s;
+                                background: #c4c4c4;
+                            }
+
+                            .phone-avatar {
+                                font-size: 20px;
+                                float: left;
+                                line-height: 35px;
+                                margin-left: 10px;
+                                margin-right: 10px;
+                                height: 35px;
+                                width: 35px;
+                                border-radius: 70px;
+                                text-align: center;
+                                -webkit-transform: translate(0%, 0%);
+                                transform: translate(0%, 0%);
+                                background: #8b1014;
+                                color: #ffffff;
+                                pointer-events: none;
+                            }
+                        
+                            .call-actions {
+                                z-index: 998;
+                                display: none;
+        
+                                i {
+                                    width: 49.5%;
+                                    text-align: center;
+                                    font-size: 25px;
+                                    pointer-events: auto;
+                                
+                                    &:hover {
+                                        transition: all ease-in 0.15s;
+                                        color: color("materialize-red", "darken-4");
+                                    }
+        
+                                    &.action-disabled {
+                                        color: #3f3f3f !important;
+                
+                                        &:hover {
+                                            color: #3f3f3f !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    .contact-search {
+                        border-top: 1px solid #1e1e1e;
+                        width: 100%;
+                        position: absolute;
+                        bottom: 8.58%;
+
+                        input {
+                            padding: 10px;
+                            margin: 0;  
+                        }
+                    }
+                }
+            }
+        }
+
+        .inner-phone-nav {
+            position: absolute;
+            bottom: 0;
+            color: #1e1e1e;
+            width: 100%;
+            background: #ffffff;
+            border-top: 1px solid #1e1e1e;
+
+            .phone-nav-button {
+                display: inline-block;
+                width: 32%;
+                text-align: center;
+                padding: 15px;
+                font-weight: bold;
+                font-size: 18px;
+                border-bottom: 5px solid transparent;
+
+                &.active-nav {
+                    border-bottom: 5px solid color("materialize-red", "darken-4");
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    transition: all ease-in 0.3s;
+                    color: color("materialize-red", "darken-4");
+                    border-bottom: 5px solid color("materialize-red", "darken-4");
+                }
+            }
+        }
+    }
+}
+
+#phone-call-container {
+    background: #1e1e1e;
+
+    .inner-app {
+        .call-header {
+            text-align: center;
+            height: 50%;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 20px;
+
+            .call-avatar {
+                font-size: 55px;
+                line-height: 120px;
+                height: 120px;
+                width: 120px;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 100px;
+                margin-top: 30%;
+                background: #ffffff;
+                color: #1e1e1e;
+
+                &.call-pending {
+                    transition: all ease-in 0.3s;
+                    filter: brightness(40%);
+                }
+
+                &.call-connected {
+                    transition: all ease-in 0.3s;
+                    filter: brightness(100%);
+                }
+
+                &.call-disconnected {
+                    transition: all ease-in 0.3s;
+                    color: #ffffff;
+                    background: color('materialize-red', 'darken-4');
+                }
+            }
+
+            .call-number {
+                margin-top: 15px;
+            }
+        }
+
+        .call-buttons {
+            height: 30%;
+            font-size: 55px;
+            color: #ffffff;
+            position: absolute;
+            bottom: 15%;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+
+            .call-button-row {
+                width: 100%;
+                text-align: center;
+
+                .call-button {
+                    display: inline-block;
+                    width: 45%;
+                    padding: 30px;
+                    border-radius: 50px;
+
+                    &:hover {
+                        transition: all ease-in 0.15s;
+                        filter: brightness(85%);
+                        background: #1e1e1e;
+                    }
+
+                    span {
+                        display: block;
+                        font-size: 12px;
+                        margin-top: 10px;
+                        font-weight: bold;
+                    }
+
+                    &#end-call {
+                        height: 100%;
+
+                        &:hover {
+                            transition: all ease-in 0.15s;
+                            filter: brightness(85%);
+                            background: transparent;
+                        }
+
+                        i {
+                            padding: 24px;
+                            width: 85px;
+                            background: color('materialize-red', 'darken-4');
+                            border-radius: 100px;
+                            color: #ffffff;
+                            font-size: 35px;
+                        }
+                    }
+
+                    &#answer-call {
+                        height: 100%;
+
+                        &:hover {
+                            transition: all ease-in 0.15s;
+                            filter: brightness(85%);
+                            background: transparent;
+                        }
+
+                        i {
+                            padding: 24px;
+                            width: 85px;
+                            background: color('green', 'darken-4');
+                            border-radius: 100px;
+                            color: #ffffff;
+                            font-size: 35px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

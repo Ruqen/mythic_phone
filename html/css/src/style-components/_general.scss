@@ -1,0 +1,252 @@
+#cursor {
+    position: absolute;
+    z-index: 9999999999;
+    display: none;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    overflow: hidden;
+
+    .phone-wrapper {
+        position: absolute;
+        bottom: 0vh;
+        right: 0vh;
+        width: 500px;
+        height: 1000px;
+        background-size: cover;
+        overflow: hidden;
+
+        .phone-img {
+            background-image: url(../imgs/s8.png);
+            position: absolute;
+            z-index: 999;
+            width: 500px;
+            height: 1000px;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .phone {
+            overflow: hidden;
+            position: absolute;
+            bottom: 98px;
+            left: 50px;
+            right: 49px;
+            top: 100px;
+            display: flex;
+            color: #1e1e1e;
+            background: #eaeaea;
+            overflow: hidden;
+
+            .phone-header {
+                height: 24px;
+                font-size: 12px;
+                line-height: 24px;
+                padding: 0px 20px 0px 24px;
+                width: 100%;
+                color: white;
+                background-color: rgba(0, 0, 0, 1);
+                position: absolute;
+                z-index: 99;
+                transition: background-color ease-in 0.15s;
+
+                &.in-call {
+                    background-color: color('green', 'darken-4');
+                }
+
+                hr {
+                    position: absolute;
+                    display: inline-block;
+                }
+
+                .time {
+                    position: absolute;
+                    left: 5%;
+                }
+
+                .carrier {
+                    text-align: right;
+                    float: right;
+                }
+
+                .battery {
+                    position: absolute;
+                    font-size: 16px;
+                    left: 14%;
+                    top: 22%;
+                }
+
+                .signal {
+                    position: absolute;
+                    right: 19%;
+                    top: 30%;
+                }
+
+                .simcard {
+                    position: absolute;
+                    right: 24%;
+                    top: 30%;
+                    color: color("materialize-red", "lighten-1");
+
+                    &:hover {
+                        transition: all ease-in 0.15s;
+                        filter: brightness(60%);
+                    }
+                }
+
+                .payphone {
+                    position: absolute;
+                    right: 24%;
+                    top: 30%;
+                    color: color("materialize-red", "lighten-1");
+                    display: none;
+
+                    &:hover {
+                        transition: all ease-in 0.15s;
+                        filter: brightness(60%);
+                    }
+                }
+
+                .mute {
+                    position: absolute;
+                    font-size: 14px;
+                    left: 21%;
+                    top: 22%;
+
+                    &:hover {
+                        transition: all ease-in 0.15s;
+                        filter: brightness(60%);
+                    }
+                }
+
+                .in-call {
+                    position: absolute;
+                    font-size: 14px;
+                    left: 27%;
+                    display: none;
+
+                    &:hover {
+                        transition: all ease-in 0.15s;
+                        filter: brightness(60%);
+                    }
+                }
+            }
+
+            .phone-screen {
+                background-size: cover !important;
+                background-position: center !important;
+                position: relative;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-line-pack: center;
+                align-content: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                color: gray;
+                background-image: url(../imgs/back003.png);
+
+                .app-container {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    display: none;
+
+                    .inner-app {
+                        position: absolute;
+                        top: 24px;
+                        width: 100%;
+                        height: 92%;
+                        overflow-y: auto;
+                        overflow-x: hidden;
+
+                        .btn-flat {
+                            color: #1e1e1e;
+                        }
+
+                        input {
+                            color: #1e1e1e;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                #remove-sim-conf {
+                    top: 0 !important;
+                }
+            }
+
+            .phone-footer {
+                height: 40px;
+                font-size: 17px;
+                line-height: 24px;
+                width: 100%;
+                color: white;
+                background-color: rgba(0, 0, 0, 1);
+                position: absolute;
+                z-index: 99;
+                bottom: 0;
+
+                .footer-button {
+                    width: 32.333333333333333%;
+                    display: inline-block;
+                    text-align: center;
+
+                    i {
+                        line-height: 40px
+                    }
+                }
+
+                .footer-button:hover {
+                    transition: all ease-in 0.15s;
+                    color: color("materialize-red", "darken-4");
+                }
+            }
+        }
+    }
+
+    input::placeholder {
+        color: #c4c4c4;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.modal {
+    position: relative;
+    /* top: 0; */
+    right: 100px;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+    max-height: 100%;
+    width: 85%;
+}
+
+.modal.show .modal-dialog {
+    -webkit-transform: none;
+    transform: none;
+    width: 300px;
+    margin-top: 50%;
+}
+
+#toast-container {
+    top: 35%;
+    pointer-events: none;
+}

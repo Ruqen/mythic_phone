@@ -1,0 +1,119 @@
+#contacts-container {
+    background: #eaeaea;
+
+    .inner-app {
+        .add-contact {
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background: color("materialize-red", "darken-4");
+            color: #ffffff;
+            font-weight: bold;
+            border-bottom: 1px solid #1e1e1e;
+
+            i {
+                margin-left: 10px;
+            }
+
+            &:hover {
+                transition: all ease-in 0.15s;
+                background: color("materialize-red", "darken-2");
+            }
+        }
+
+        .contacts-list {
+            height: 86.4%;
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            .contact {
+                border-bottom: 1px solid #1e1e1e;
+                padding: 10px;
+                display: block;
+                color: #1e1e1e;
+                background: #ffffff;
+
+                .contact-avatar {
+                    font-size: 20px;
+                    float: left;
+                    line-height: 35px;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    margin-top: 8px;
+                    height: 35px;
+                    width: 35px;
+                    border-radius: 70px;
+                    text-align: center;
+                    position: relative;
+                    top: 15%;
+                    -webkit-transform: translate(0%, 0%);
+                    transform: translate(0%, 0%);
+                    background: #8b1014;
+                    color: #ffffff;
+                    pointer-events: none;
+                }
+
+                .contact-name {
+                    line-height: 50px;
+                    pointer-events: none;
+
+                    .contact-name-text {
+                        width: 50%;
+                        display: inline-block;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                    
+                    .number {
+                        font-weight: bold;
+                        float: right;
+                        padding-right: 20px;
+                    }
+                }
+
+                &:hover {
+                    transition: all ease-in 0.15s;
+                    background: #c4c4c4;
+                }
+
+                .contact-actions {
+                    z-index: 998;
+                    padding: 10px;
+                    display: none;
+
+                    i {
+                        width: 25%;
+                        text-align: center;
+                        font-size: 25px;
+                        pointer-events: auto;
+                    
+                        &:hover {
+                            transition: all ease-in 0.15s;
+                            color: color("materialize-red", "darken-4");
+                        }
+
+                        &.action-disabled {
+                            color: #3f3f3f !important;
+    
+                            &:hover {
+                                color: #3f3f3f !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .search-contact {
+            border-top: 1px solid #1e1e1e;
+
+            input {
+                height: 5%;
+                width: 100%;
+                padding: 10px;
+                margin: 0;
+            }
+        }
+    }
+}
