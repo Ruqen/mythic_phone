@@ -1,6 +1,6 @@
 RegisterNetEvent('mythic_phone:client:ReceiveText')
 AddEventHandler('mythic_phone:client:ReceiveText', function(sender, text)
-    TriggerServerEvent('mythic_sounds:server:PlayWithinDistance', 10.0, 'text_message', 0.05)
+    TriggerServerEvent('InteractSound_SV', 10.0, 'text_message', 0.05)
     exports['mythic_notify']:SendAlert('inform', 'You Received A Text From ' .. sender)
 
     SendNUIMessage({
