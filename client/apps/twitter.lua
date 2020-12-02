@@ -5,5 +5,6 @@
 -- end)
 
 RegisterNUICallback('NewTweet', function(data, cb)
-    TriggerServerEvent('mythic_phone:server:NewTweet', data.message, data.mentions, data.hashtags)
+    ESX.TriggerServerCallback('mythic_phone:server:NewTweet', function(status)
+    end, data.message, data.mentions, data.hashtags)
 end)
