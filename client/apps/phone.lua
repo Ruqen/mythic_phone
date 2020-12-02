@@ -20,7 +20,7 @@ AddEventHandler('mythic_phone:client:CreateCall', function(number)
 
     Citizen.CreateThread(function()
         while Call.status == 0 do
-            TriggerServerEvent('mythic_sounds:server:PlayOnSource', 'dialtone', 0.1)
+            TriggerServerEvent('InteractSound_SV:server:PlayOnSource', 'dialtone', 0.1)
             Citizen.Wait(100)
         end
     end)
@@ -30,7 +30,7 @@ AddEventHandler('mythic_phone:client:CreateCall', function(number)
         while Call.status == 0 do
             if count >= 30 then
                 TriggerServerEvent('mythic_phone:server:EndCall', securityToken)
-                TriggerEvent('mythic_sounds:client:StopOnOne', 'dialtone')
+                TriggerEvent('InteractSound_SV:client:StopOnOne', 'dialtone')
 
                 if isPhoneOpen then
                     PhoneCallToText()
@@ -72,8 +72,8 @@ AddEventHandler('mythic_phone:client:AcceptCall', function(channel, initiator)
             })
         end
 
-        TriggerEvent('mythic_sounds:client:StopOnOne', 'dialtone')
-        TriggerServerEvent('mythic_sounds:server:StopWithinDistance', 'ringtone2')
+        TriggerEvent('InteractSound_SV:client:StopOnOne', 'dialtone')
+        TriggerServerEvent('InteractSound_SV:server:StopWithinDistance', 'ringtone2')
     end
 end)
 
@@ -83,8 +83,8 @@ AddEventHandler('mythic_phone:client:EndCall', function()
         action = 'endCall'
     })
 
-    TriggerEvent('mythic_sounds:client:StopOnOne', 'dialtone')
-    TriggerServerEvent('mythic_sounds:server:StopWithinDistance', 'ringtone2')
+    TriggerEvent('InteractSound_SV:client:StopOnOne', 'dialtone')
+    TriggerServerEvent('InteractSound_SV:server:StopWithinDistance', 'ringtone2')
     exports['mythic_notify']:SendAlert('inform', 'Call Ended', 2500, { ['background-color'] = '#ff8555', ['color'] = '#ffffff' })
     exports['mythic_notify']:PersistentAlert('end', Config.IncomingNotifId)
     exports['mythic_notify']:PersistentAlert('end', 'active-call')
@@ -113,7 +113,7 @@ AddEventHandler('mythic_phone:client:ReceiveCall', function(number)
     -- TODO : Add Check For Muted Sound
     Citizen.CreateThread(function()
         while Call.status == 0 do
-            TriggerServerEvent('mythic_sounds:server:PlayWithinDistance', 2.0, 'ringtone2', 0.1)
+            TriggerServerEvent('InteractSound_SV:server:PlayWithinDistance', 2.0, 'ringtone2', 0.1)
             Citizen.Wait(500)
         end
     end)
@@ -123,7 +123,7 @@ AddEventHandler('mythic_phone:client:ReceiveCall', function(number)
     Citizen.CreateThread(function()
         while Call.status == 0 do
             if count >= 30 then
-                TriggerServerEvent('mythic_sounds:server:StopWithinDistance', 'ringtone2')
+                TriggerServerEvent('InteractSound_SV:server:StopWithinDistance', 'ringtone2')
                 TriggerServerEvent('mythic_phone:server:EndCall', securityToken)
                 Call = {}
             else
